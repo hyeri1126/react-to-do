@@ -2,9 +2,10 @@ import { TODO_CATEGORY_ICON } from '@/constants/icon'
 import { useEffect, useState } from 'react'
 
 const TodoForm = ({onClose, addTodo, type, id, todo}) => {
-    const [title, setTitle] = useState(type === "update" ? todo.title : '')
-    const [summary, setSummary] = useState(type === "update" ? todo.summary : '')
-    const [category, setCategory] = useState(type === "update" ? todo.category : 'TODO')
+    const [title, setTitle] = useState(todo ===  undefined? '': todo.title )
+    const [summary, setSummary] = useState(todo ===  undefined? '': todo.summary)
+    const [category, setCategory] = useState(todo ===  undefined? 'TODO': todo.category)
+    // const [category, setCategory] = useState(type === "update" ? todo.category : 'TODO')
     const [isFormValid, setIsFormValid] = useState(false)
 
 

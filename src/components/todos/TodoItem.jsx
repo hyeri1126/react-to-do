@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
 import TodoForm from './TodoForm';
 import Modal from '@/components/ui/Modal';
 
-const TodoItem = ({handleTodo, deleteTodo, todo}) => {
+const TodoItem = ({addTodo, deleteTodo, todo}) => {
   const [modalOpen, setModalOpen] = useState(false);
   // const todo = todos[id]
   const handleOpenModal = () => {
@@ -33,7 +33,7 @@ const TodoItem = ({handleTodo, deleteTodo, todo}) => {
           <IconButton onClick={handleOpenModal} icon={'✏️'}/>
           {modalOpen && createPortal(
             <Modal onClose={handleCloseModal}>
-              <TodoForm handleTodo={handleTodo} onClose={handleCloseModal}  type={"update"} id={todo.id} todo={todo} />
+              <TodoForm addTodo={addTodo} onClose={handleCloseModal}  type={"update"} id={todo.id} todo={todo} />
               {/* <TodoForm>New Todo</TodoForm> */}
             </Modal>, document.body)}
           <IconButton onClick={deleteHandle} textColor='text-gray-300' icon={'🗑'} />
